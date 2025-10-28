@@ -12,7 +12,7 @@ def generator_numbers(text: str) -> Generator[Decimal]:
     """
     # Регулярний вираз для пошуку дійсних чисел, відокремлених
     # пробілами з обох боків
-    pattern = r'(?<=\s)\d+\.\d+(?=\s)'
+    pattern = r'(?<= )\d+\.\d+(?= )'
     for match in re.finditer(pattern, text):
         yield Decimal(match.group())
 

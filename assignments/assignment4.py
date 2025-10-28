@@ -25,8 +25,6 @@ def parse_input(user_input: str) -> Tuple[str, List[str]]:
 
 @input_error
 def add_contact(args: List[str], contacts: Dict[str, str]) -> str:
-    if len(args) != 2:
-        raise IndexError("Not enough arguments")
     name, phone = args
     contacts[name] = phone
     return "Contact added."
@@ -34,8 +32,6 @@ def add_contact(args: List[str], contacts: Dict[str, str]) -> str:
 
 @input_error
 def change_contact(args: List[str], contacts: Dict[str, str]) -> str:
-    if len(args) != 2:
-        raise IndexError("Not enough arguments")
     name, new_phone = args
     if name not in contacts:
         raise KeyError("Contact not found")
@@ -45,9 +41,7 @@ def change_contact(args: List[str], contacts: Dict[str, str]) -> str:
 
 @input_error
 def show_phone(args: List[str], contacts: Dict[str, str]) -> str:
-    if len(args) != 1:
-        raise IndexError("Not enough arguments")
-    name = args[0]
+    name, = args
     if name not in contacts:
         raise KeyError("Contact not found")
     return contacts[name]
