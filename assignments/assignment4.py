@@ -59,6 +59,7 @@ def show_all(contacts: Dict[str, str]) -> str:
     lines = [f"{name}: {phone}" for name, phone in contacts.items()]
     return "\n".join(lines)
 
+
 def main():
     contacts: dict[str, str] = {}
     print("Welcome to the assistant bot!")
@@ -81,6 +82,7 @@ def main():
             print(show_all(contacts))
         else:
             print("Invalid command.")
-    
+
+
 if __name__ == '__main__':
     main()
